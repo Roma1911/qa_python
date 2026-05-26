@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+# qa_python
+
+>>>>>>> develop
 def test_add_name_book_more_than_40_chars - добавление новой книги.
 
 def test_set_book_genre_installing_the_genre - устанавливаем книге жанр.
