@@ -28,12 +28,21 @@ class TestBooksCollector:
     # напиши свои тесты ниже
     # чтобы тесты были независимыми в каждом из них создавай отдельный экземпляр класса BooksCollector()
 
+ Roma1911-develop
+ @pytest.mark.parametrize("book_name,genre", [
+        ("Мстители", "Фантастика"),
+        ("Крик", "Ужасы"),
+        ("Убийство в ночном экспрессе", "Детективы"),
+        ("Король Лев", "Мультфильмы"),
+        ("Один дома", "Комедии"),
+
     @pytest.mark.parametrize("book_name,genre", [
     ("Мстители", "Фантастика"),
     ("Крик", "Ужасы"),
     ("Убийство в ночном экспрессе", "Детективы"),
     ("Король Лев", "Мультфильмы"),
     ("Один дома", "Комедии"),
+ main
     ])
     def test_add_book_with_valid_genre(self, book_name, genre):
         collector = BooksCollector()
@@ -41,6 +50,10 @@ class TestBooksCollector:
         collector.set_book_genre(book_name, genre)
         assert book_name in collector.books_genre
         assert collector.books_genre[book_name] == genre
+ Roma1911-develop
+
+
+
     
    
     def test_add_duplicate_book(self):
@@ -63,6 +76,7 @@ class TestBooksCollector:
         assert long_name in collector.books_genre
        
 
+ main
     def test_add_name_book_more_than_40_chars(self):
         collector = BooksCollector()
         long_name = 'Очень очень длинное название книги где больше 40 слов'
@@ -71,6 +85,8 @@ class TestBooksCollector:
         assert len(collector.books_genre) == initial_count
         assert long_name not in collector.books_genre
 
+
+ Roma1911-develop
 
     def test_add_new_book_more_than_39_chars(self):
         collector = BooksCollector()
@@ -121,6 +137,7 @@ class TestBooksCollector:
             pass
 
 
+ main
     def test_set_book_genre_installing_the_genre(self):
         collector = BooksCollector()
         collector.add_new_book('Посёлок')
@@ -179,11 +196,13 @@ class TestBooksCollector:
         collector.add_book_in_favorites('Убийство в ночном экспрессе')
         favorites = collector.favorites
         assert 'Убийство в ночном экспрессе' in favorites
+ Roma1911-develop
         assert len(favorites) == 1
         collector.add_book_in_favorites('Несуществующая книга')
         favorites = collector.favorites
         assert 'Несуществующая книга' not in favorites
         assert len(favorites) == 1
+ main
 
 
     def test_delete_book_from_favorites_removes_book(self):
